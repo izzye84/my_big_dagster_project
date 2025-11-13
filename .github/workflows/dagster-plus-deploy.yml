@@ -45,6 +45,16 @@ jobs:
           # the base deployment for the branch deployment.
           deployment: "prod"
 
+      # Copy shared code and data files into each location for Docker/PEX build isolation
+      - name: Prepare shared dependencies
+        run: |
+          for loc in 1 2 3 4 5; do
+            cp -r deep_purple_shared/src/deep_purple_shared deep_purple_location_${loc}/src/
+            cp dag.csv.gz deep_purple_location_${loc}/
+          done
+          echo "✅ Copied shared code and dag.csv.gz into all locations"
+        shell: bash
+
       # If using fast build, build the PEX
       # First ensure the correct Python version is installed
       - name: Set up Python ${{ env.PYTHON_VERSION }} for target
@@ -90,7 +100,7 @@ jobs:
       - name: Update PR comment for branch deployments
         id: ci-notify
         if: steps.prerun.outputs.result != 'skip'
-        uses: dagster-io/dagster-cloud-action/actions/utils/dagster-cloud-cli@v0.1
+        uses: dagster-io/dagster-cloud-action/actions/utils/dg-cli@v1.11.12
         with:
           command: "ci notify --project-dir=${{ env.DAGSTER_PROJECT_DIR }}"
 
@@ -98,6 +108,6 @@ jobs:
       - name: Generate a summary
         id: ci-summary
         if: steps.prerun.outputs.result != 'skip'
-        uses: dagster-io/dagster-cloud-action/actions/utils/dagster-cloud-cli@v0.1
+        uses: dagster-io/dagster-cloud-action/actions/utils/dg-cli@v1.11.12
         with:
           command: "ci status --output-format=markdown >> $GITHUB_STEP_SUMMARY"

@@ -1,0 +1,31 @@
+[project]
+name = "deep_purple_location_2"
+version = "0.1.0"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "dagster==1.11.12",
+    "dagster-cloud",
+    "pandas",
+    "pydantic",
+    "pydantic-settings",
+]
+
+[project.optional-dependencies]
+dev = [
+    "dagster-webserver",
+    "dagster-dg-cli",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/deep_purple_location_2", "src/deep_purple_shared"]
+
+[tool.dg]
+directory_type = "project"
+
+[tool.dg.project]
+root_module = "deep_purple_location_2"
+code_location_target_module = "deep_purple_location_2.definitions"

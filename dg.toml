@@ -1,0 +1,17 @@
+directory_type = "workspace"
+
+[workspace]
+[[workspace.projects]]
+path = "deep_purple_location_1"
+
+[[workspace.projects]]
+path = "deep_purple_location_2"
+
+[[workspace.projects]]
+path = "deep_purple_location_3"
+
+[[workspace.projects]]
+path = "deep_purple_location_4"
+
+[[workspace.projects]]
+path = "deep_purple_location_5"
