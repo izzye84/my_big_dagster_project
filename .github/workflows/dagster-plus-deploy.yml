@@ -45,13 +45,14 @@ jobs:
           # the base deployment for the branch deployment.
           deployment: "prod"
 
-      # Copy shared code into each location for Docker/PEX build isolation
+      # Copy shared code and data files into each location for Docker/PEX build isolation
       - name: Prepare shared dependencies
         run: |
           for loc in 1 2 3 4 5; do
             cp -r deep_purple_shared/src/deep_purple_shared deep_purple_location_${loc}/src/
+            cp dag.csv.gz deep_purple_location_${loc}/
           done
-          echo "✅ Copied shared code into all locations"
+          echo "✅ Copied shared code and dag.csv.gz into all locations"
         shell: bash
 
       # If using fast build, build the PEX
