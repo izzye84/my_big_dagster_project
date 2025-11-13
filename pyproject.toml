@@ -22,12 +22,3 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 force-include = { "pyproject.toml" = "pyproject.toml" }
-
-[tool.dg]
-directory_type = "project"
-
-[tool.dg.project]
-root_module = "deep_purple"
-registry_modules = [
-    "deep_purple.components.*",
-]

@@ -1,0 +1,30 @@
+locations:
+  - location_name: deep_purple_location_1
+    code_source:
+      python_file: src/deep_purple_location_1/definitions.py
+    build:
+      directory: .
+
+  - location_name: deep_purple_location_2
+    code_source:
+      python_file: src/deep_purple_location_2/definitions.py
+    build:
+      directory: .
+
+  - location_name: deep_purple_location_3
+    code_source:
+      python_file: src/deep_purple_location_3/definitions.py
+    build:
+      directory: .
+
+  - location_name: deep_purple_location_4
+    code_source:
+      python_file: src/deep_purple_location_4/definitions.py
+    build:
+      directory: .
+
+  - location_name: deep_purple_location_5
+    code_source:
+      python_file: src/deep_purple_location_5/definitions.py
+    build:
+      directory: .
