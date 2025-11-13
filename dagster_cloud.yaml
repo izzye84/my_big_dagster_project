@@ -2,19 +2,29 @@ locations:
   - location_name: deep_purple_location_1
     code_source:
       package_name: deep_purple_location_1.definitions
+    build:
+      directory: ./deep_purple_location_1
 
   - location_name: deep_purple_location_2
     code_source:
       package_name: deep_purple_location_2.definitions
+    build:
+      directory: ./deep_purple_location_2
 
   - location_name: deep_purple_location_3
     code_source:
       package_name: deep_purple_location_3.definitions
+    build:
+      directory: ./deep_purple_location_3
 
   - location_name: deep_purple_location_4
     code_source:
       package_name: deep_purple_location_4.definitions
+    build:
+      directory: ./deep_purple_location_4
 
   - location_name: deep_purple_location_5
     code_source:
       package_name: deep_purple_location_5.definitions
+    build:
+      directory: ./deep_purple_location_5
