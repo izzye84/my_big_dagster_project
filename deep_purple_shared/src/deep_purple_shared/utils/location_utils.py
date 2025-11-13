@@ -1,17 +1,23 @@
 """
 Utility functions for distributing assets across multiple code locations.
 """
+import hashlib
 
 
 def get_asset_location(asset_name: str, num_locations: int = 5) -> int:
     """
     Determine which code location an asset belongs to based on hash.
 
+    Uses a deterministic hash function (MD5) to ensure consistent assignment
+    across different Python processes.
+
     :param asset_name: The name of the asset (e.g., "managed_abc123" or "source_xyz789")
     :param num_locations: Total number of code locations (default 5)
     :return: Location number (1-5)
     """
-    return (hash(asset_name) % num_locations) + 1
+    # Use MD5 for deterministic hashing across Python processes
+    hash_value = int(hashlib.md5(asset_name.encode()).hexdigest(), 16)
+    return (hash_value % num_locations) + 1
 
 
 def should_create_asset_in_location(asset_name: str, current_location: int, num_locations: int = 5) -> bool:
