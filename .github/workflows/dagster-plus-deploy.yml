@@ -100,7 +100,7 @@ jobs:
       - name: Update PR comment for branch deployments
         id: ci-notify
         if: steps.prerun.outputs.result != 'skip'
-        uses: dagster-io/dagster-cloud-action/actions/utils/dagster-cloud-cli@v0.1
+        uses: dagster-io/dagster-cloud-action/actions/utils/dg-cli@v1.11.12
         with:
           command: "ci notify --project-dir=${{ env.DAGSTER_PROJECT_DIR }}"
 
@@ -108,6 +108,6 @@ jobs:
       - name: Generate a summary
         id: ci-summary
         if: steps.prerun.outputs.result != 'skip'
-        uses: dagster-io/dagster-cloud-action/actions/utils/dagster-cloud-cli@v0.1
+        uses: dagster-io/dagster-cloud-action/actions/utils/dg-cli@v1.11.12
         with:
           command: "ci status --output-format=markdown >> $GITHUB_STEP_SUMMARY"
