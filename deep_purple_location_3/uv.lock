@@ -407,8 +407,9 @@ source = { editable = "." }
 dependencies = [
     { name = "dagster" },
     { name = "dagster-cloud" },
-    { name = "deep-purple-shared" },
     { name = "pandas" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
 ]
 
 [package.optional-dependencies]
@@ -423,29 +424,11 @@ requires-dist = [
     { name = "dagster-cloud" },
     { name = "dagster-dg-cli", marker = "extra == 'dev'" },
     { name = "dagster-webserver", marker = "extra == 'dev'" },
-    { name = "deep-purple-shared", editable = "../deep_purple_shared" },
     { name = "pandas" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
 ]
 provides-extras = ["dev"]
-
-[[package]]
-name = "deep-purple-shared"
-version = "0.1.0"
-source = { editable = "../deep_purple_shared" }
-dependencies = [
-    { name = "dagster" },
-    { name = "pandas" },
-    { name = "pydantic" },
-    { name = "pydantic-settings" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "dagster", specifier = "==1.11.12" },
-    { name = "pandas" },
-    { name = "pydantic" },
-    { name = "pydantic-settings" },
-]
 
 [[package]]
 name = "docstring-parser"

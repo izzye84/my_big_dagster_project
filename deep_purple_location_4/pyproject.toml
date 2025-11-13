@@ -14,7 +14,6 @@ dependencies = [
 dev = [
     "dagster-webserver",
     "dagster-dg-cli",
-    "deep_purple_shared",
 ]
 
 [build-system]
@@ -30,6 +29,3 @@ directory_type = "project"
 [tool.dg.project]
 root_module = "deep_purple_location_4"
 code_location_target_module = "deep_purple_location_4.definitions"
-
-[tool.uv.sources]
-deep_purple_shared = { path = "../deep_purple_shared", editable = true }

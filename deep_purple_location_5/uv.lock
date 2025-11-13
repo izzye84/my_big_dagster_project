@@ -407,14 +407,16 @@ source = { editable = "." }
 dependencies = [
     { name = "dagster" },
     { name = "dagster-cloud" },
-    { name = "deep-purple-shared" },
     { name = "pandas" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
 ]
 
 [package.optional-dependencies]
 dev = [
     { name = "dagster-dg-cli" },
     { name = "dagster-webserver" },
+    { name = "deep-purple-shared" },
 ]
 
 [package.metadata]
@@ -423,8 +425,10 @@ requires-dist = [
     { name = "dagster-cloud" },
     { name = "dagster-dg-cli", marker = "extra == 'dev'" },
     { name = "dagster-webserver", marker = "extra == 'dev'" },
-    { name = "deep-purple-shared", editable = "../deep_purple_shared" },
+    { name = "deep-purple-shared", marker = "extra == 'dev'", editable = "../deep_purple_shared" },
     { name = "pandas" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
 ]
 provides-extras = ["dev"]
 
